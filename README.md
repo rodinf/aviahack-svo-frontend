@@ -1,5 +1,9 @@
 # svo-bus
 
+## Enviroment variables
+
+API endpoint: ```SVO_API_ENDPOINT```, default: 	```http://<host>:5000/svo/```
+
 ## Project setup
 ```
 yarn install
