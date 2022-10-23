@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app">
+    <!-- debug
+      {{$store.state.user}}
+      <button @click="logout">logout</button>
+    -->
+    <vue-extend-layouts />
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VueExtendLayouts from 'vue-extend-layout'
+import { logout } from "@/auth/logout";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { VueExtendLayouts },
+  methods: {
+    logout
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: var(--v-background-base) !important;
 }
 </style>
