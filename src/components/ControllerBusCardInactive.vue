@@ -11,7 +11,7 @@
       </span>
 
       <span class="ml-6 text--secondary">
-        {{ airportCity }} {{ airportCode }}
+        {{ airportCity }} <span v-if="taskType == 'departure'">{{ airportCode }}</span>
       </span>
 
       <v-spacer />
@@ -23,7 +23,10 @@
     </v-card-title>
     <v-card-text class="pt-1 pb-2 card-inactive-text text--secondary">
       <div class="ml-1">
+        <span v-if="taskType == 'arrival'" class="mr-2">Прилёт:</span>
+        <span v-else-if="taskType == 'departure'" class="mr-2" >Вылет:</span>
         {{timeCreate}} &nbsp; {{dateCreate}}
+        <!--<span class="ml-10">{{pax}} пассажиров</span>-->
       </div>
       <div>
         <v-chip v-for="bus in buses" :key="bus" small class="ma-1">
@@ -48,7 +51,8 @@ export default {
     'gate',
     'buses',
     'timeCreate',
-    'dateCreate'
+    'dateCreate',
+    'pax'
   ]
 }
 </script>

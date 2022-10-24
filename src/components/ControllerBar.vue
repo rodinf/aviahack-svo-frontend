@@ -29,7 +29,7 @@
     </span>
 
     <v-spacer></v-spacer>
-    <span>{{ time | getTimeFromUnix }} &nbsp; {{ time | getDateFromUnix }}</span>
+    <span>{{ timeNavbarTime }} &nbsp; {{ timeNavbarDate }}</span>
 
     <v-btn @click="logout" text small>
       <v-icon>mdi-exit-to-app</v-icon>
@@ -39,9 +39,11 @@
 
 <script>
 import moment from "moment"
+import 'moment-timezone'
 import {logout} from "@/auth/logout";
 
 moment.locale("ru")
+moment.tz("Europe/Moscow").format()
 
 export default {
   name: "ControllerBar",
@@ -55,24 +57,31 @@ export default {
   ],
   data () {
     return {
-      timeNavbar: null
+      timeNavbarTime: null,
+      timeNavbarDate: null,
+      timeNavbarUnix: null
     }
   },
-  filters: {
+  methods: {
     getTimeFromUnix: function (value) {
       if (value) {
-        return moment.unix(value).format('H:MM:SS')
+        return moment.unix(value - 10800).tz("Europe/Moscow").format('hh:mm:ss')
       }
     },
     getDateFromUnix: function (value) {
       if (value) {
-        return moment.unix(value).format('DD.MM.YYYY')
+        return moment.unix(value - 10800).tz("Europe/Moscow").format('DD.MM.YYYY')
       }
-    }
+    },
+    logout,
   },
 
-  methods: {
-    logout,
+  watch: {
+    time: function() {
+      this.timeNavbarUnix = this.time
+      this.timeNavbarTime = this.getTimeFromUnix(this.time)
+      this.timeNavbarDate = this.getDateFromUnix(this.time)
+    }
   }
 }
 </script>

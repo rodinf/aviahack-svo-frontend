@@ -49,6 +49,7 @@
                         :buses="bus.connect_task"
                         :time-create="bus.time_create_action"
                         :date-create="bus.date_create_action"
+                        :pax="bus.size_passenger"
                     />
                 </div>
               </div>
@@ -92,6 +93,7 @@
                       :buses="bus.connect_task"
                       :time-create="bus.time_create_action"
                       :date-create="bus.date_create_action"
+                      :pax="bus.size_passenger"
                   />
               </div>
             </div>

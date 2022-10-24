@@ -1,28 +1,34 @@
-# svo-bus
+# Веб-интерфейс системы управления автобусами аэропорта Шереметьево
 
-## Enviroment variables
+Кейс аэропорта Шереметьево на Авиахакатоне-2022
 
-API endpoint: ```SVO_API_ENDPOINT```, default: 	```http://<host>:5000/svo/```
+![Страница входа в систему](./images/login.png)
 
-## Project setup
+![Интерфейс диспетчера](./images/controller.png)
+
+## Переменные окружения для docker и docker-compose
+
+API endpoint: ```SVO_API_ENDPOINT```, стандартное значение: 	```http://<host>:5000/svo/```
+
+## Установка зависимостей
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Сервер для разработки
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Сборка 
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### Линтер и проверка файлов
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Дополнительно
+см. [Configuration Reference](https://cli.vuejs.org/config/).
